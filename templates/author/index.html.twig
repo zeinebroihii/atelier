@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Liste des Auteurs</title>
+		<style>
+			.container {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+			table {
+				border-collapse: collapse;
+				width: 100%;
+			}
+			th,
+			td {
+				border: 1px solid black;
+				padding: 8px;
+				text-align: left;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Liste des Auteurs</h1>
+			<table>
+				<tr>
+					<th>Username</th>
+					<th>Email</th>
+					<th>Actions</th>
+
+				</tr>
+				{% for author in authors %}
+					<tr>
+						<td>{{ author.username}}</td>
+						<td>{{ author.email }}</td>
+						<td>
+							<a href="{{path('author_update',{'id':author.id})}}">Update</a>&nbsp;<a href="{{path('deleteAuthor',{'id':author.id})}}">Delete</a>
+						</td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</body>
+</html>

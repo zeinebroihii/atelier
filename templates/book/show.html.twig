@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Détails du Livre</h1>
+
+    <p><strong>Titre:</strong> {{ book.title }}</p>
+    <p><strong>Catégorie:</strong> {{ book.category }}</p>
+    <p><strong>Date de Publication:</strong> {{ book.publicationDate | date('Y-m-d') }}</p>
+    <p><strong>Auteur:</strong> {{ book.author.username }}</p>
+    <p><strong>Publié:</strong> {% if book.published %}Oui{% else %}Non{% endif %}</p>
+    <!-- Ajoutez d'autres détails du livre ici si nécessaire -->
+{% endblock %}

@@ -1,3 +1,36 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+app_author:
+    path: /author
+    controller: App\Controller\AuthorController::index
+
+add_author_static:
+    path: /addAuthor
+    controller: App\Controller\AuthorController::addAuthorStatic
+
+addAuthorF:
+    path: /add_author
+    controller: App\Controller\AuthorController::addAuthorF
+
+author_update:
+    path: /author/update/{id}
+    controller: App\Controller\AuthorController::UpdateAuthor
+
+deleteAuthor:
+    path: /author/delete/{id}
+    controller: App\Controller\AuthorController::deleteAuthor
+book_new:
+    path: /book/new
+    controller: App\Controller\BookController::new
+book_list:
+    path: /book/list
+    controller: App\Controller\BookController::list
+app_book:
+    path: /book/update/{ref}
+    controller: App\Controller\BookController::UpdateBook
+app_bookd:
+    path: /book/delete/{ref}
+    controller: App\Controller\BookController::DeleteBook
+show_book:
+    path: /book/{ref}
+    controller: App\Controller\BookController::show
+
+    

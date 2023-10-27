@@ -1,0 +1,82 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      font-family: sans-serif;
+      font-size: 16px;
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ccc;
+    }
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #eee;
+      font-weight: bold;
+    }
+
+    tr:nth-child(2n) {
+      background-color: #fff;
+    }
+
+  </style>
+  
+  <div class="container">
+    <h1>Book List</h1>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Category</th>
+          <th>Publication Date</th>
+          <th>Author</th>
+        <th>published</th>
+         <th>Actions</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in books %}
+          <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.category }}</td>
+            <td>{{ book.publicationDate | date('Y-m-d') }}</td>
+            <td>{{ book.author.username }}</td>
+        <td>{% if book.published %}yes{% else %}No{% endif %}</td>
+        <td>
+           <a href="{{path('app_book',{'ref':book.ref})}}">Update</a>  
+                <a href="{{path('app_bookd',{'ref':book.ref})}}">Delete</a>
+    <a href="{{ path('show_book', {'ref': book.ref}) }}">Voir les détails</a>         
+
+        </td>
+       
+       
+       
+
+
+
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <h1>Nombre de Livres</h1>
+
+    <p>Nombre de livres publiés : {{ publishedCount }}</p>
+    <p>Nombre de livres non publiés : {{ unpublishedCount }}</p>
+
+  </div>
+{% endblock %}
